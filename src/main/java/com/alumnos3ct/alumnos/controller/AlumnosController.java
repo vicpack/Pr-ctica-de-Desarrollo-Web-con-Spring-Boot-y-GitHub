@@ -1,12 +1,10 @@
 package com.alumnos3ct.alumnos.controller;
 
+import com.alumnos3ct.alumnos.model.Alumno;
 import com.alumnos3ct.alumnos.model.AlumnoRecord;
 import com.alumnos3ct.alumnos.service.AlumnoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,13 +14,20 @@ public class AlumnosController {
     @Autowired
     AlumnoService alumnoService;
 
-    @GetMapping("/v1/alumnos/{marca}")
+    @GetMapping("/v1/alumnos/{curso}")
     public List<AlumnoRecord> obtenerAlumnos(@PathVariable String curso){
         return alumnoService.obtenerAlumnos(curso);
     }
 
-    @GetMapping
-    public List<AlumnoRecord> listarCompus(){
+    @GetMapping("/v1/alumnos")
+    public List<AlumnoRecord> listarAlumnos(){
         return alumnoService.listarAlumnos();
     }
+
+    @PostMapping("/v1/alumnos/agregarAlumno")
+    public String agregarAlumno(@RequestBody AlumnoRecord alumno){
+        alumnoService.agregar(alumno);
+        return "OK";
+    }
+
 }

@@ -29,5 +29,9 @@ public class AlumnoService {
         return alumnoModelo.alumnos.stream().toList();
     }
 
+    public void agregar(AlumnoRecord alumno){
+        alumnoModelo.alumnos.add(alumno);
+    }
+
 
 }
