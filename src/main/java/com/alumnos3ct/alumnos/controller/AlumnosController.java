@@ -1,6 +1,5 @@
 package com.alumnos3ct.alumnos.controller;
 
-import com.alumnos3ct.alumnos.model.Alumno;
 import com.alumnos3ct.alumnos.model.AlumnoRecord;
 import com.alumnos3ct.alumnos.service.AlumnoService;
 import org.springframework.beans.factory.annotation.Autowired;
